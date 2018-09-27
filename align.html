@@ -1,0 +1,70 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="https://www.regenering.com/wp-content/uploads/feedback.png.cf_.png" type="image/x-icon">
+    <title>Teacher Feedback</title>
+    <style>
+     .act{
+        background-color:lightgrey;
+     }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="../index.php">Feedback</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li ><a href="admin.php">Teachers Stats</a></li>
+                <li class="act"><a href="students.php">Manage Students</a></li>
+                <li><a href="teachers.php">Manage Teachers</a></li>
+             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="../accounts/logout.php">
+                        <span class="glyphicon glyphicon-log-out"></span> Log out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+  <h2>Manage Students:</h2>
+  <p>You can enable or disable the student account</p>  
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+        <tr><td><input type='checkbox' name='id_list[]' value=''></td><td>13</td><td>manoj</td><td>manojvrv@gmail.com</td><td>Active</td></tr><tr><td><div class='checkbox'><input type='checkbox' name='id_list[]' value=''></div></td><td>14</td><td>ram</td><td>sriramprasadtalasila@gmail.com</td><td>Active</td></tr>    </tbody>
+  </table>
+</div>
+    <script>
+        $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
+    </script>
+</body>
+
+</html>
